@@ -11,10 +11,15 @@ export class AppComponent implements OnInit{
   books : Book[];
   bookToEdit : Book;
   indiceBookToEdit : number;
+  action : string
 
-  addBook(iban : string, titre : string){
-    let book = new Book(iban, titre);
+  setAction(action : string){
+    this.action = action;
+  }
+
+  addBook(book : Book){
     this.books.push(book);
+    this.setAction('');
     console.log(this.books);
   }
 
@@ -28,16 +33,19 @@ export class AppComponent implements OnInit{
     //passer l'objet à modifier au composant Edit
     this.bookToEdit = this.books[indice];
     this.indiceBookToEdit = indice;
+    this.setAction('edit');
 
   }
 
   editBook(book : Book){
     //Récupérer l'objet modifié afin de mettre à jour le tableau books -> le tableau HTML
     this.books[this.indiceBookToEdit] = book;
+    this.setAction('');
   }
 
   ngOnInit(): void {
     this.books = [];
+    this.action = '';
   }
 
   /*ngOnChanges(): void{

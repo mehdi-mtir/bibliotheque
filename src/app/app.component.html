@@ -1,21 +1,6 @@
 <div class="container">
-  <h1>Ajouter un livre</h1>
-  <form>
-    <div class="form-group">
-      <label for="iban">IBAN</label>
-      <input type="text" class="form-control" id="iban" #i>
-    </div>
-    <div class="form-group">
-      <label for="Titre">Titre</label>
-      <input type="text" class="form-control" id="titre" #t>
-    </div>
-    <div>
-      <input type="button" class="btn btn-primary" value="Ajouter" (click)="addBook(i.value, t.value)">
-    </div>
-  </form>
-
-
   <h1>Liste des livres</h1>
+  <input type="button" value="Ajouter un livre" class="btn btn-success" (click)="setAction('add')">
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -37,5 +22,6 @@
     </tbody>
   </table>
 
-  <app-edit [book]="bookToEdit" (edition)="editBook($event)"></app-edit>
+  <app-edit *ngIf="action == 'edit'" [book]="bookToEdit" (edition)="editBook($event)"></app-edit>
+  <app-add *ngIf="action == 'add'" (addEvent)='addBook($event)'></app-add>
 </div>
