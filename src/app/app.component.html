@@ -22,6 +22,7 @@
         <th scope="col">#</th>
         <th scope="col">IBAN</th>
         <th scope="col">Titre</th>
+        <th scope="col">Editer</th>
         <th scope="col">Supprimer</th>
       </tr>
     </thead>
@@ -30,8 +31,11 @@
         <th scope="row">{{indice + 1}}</th>
         <td>{{livre.iban}}</td>
         <td>{{livre.titre}}</td>
+        <td><input type="button" class="btn btn-info" value="Editer" (click)="showEditBook(indice)" > </td>
         <td><input type="button" class="btn btn-danger" value="Supprimer" (click)="deleteBook(indice)" > </td>
       </tr>
     </tbody>
   </table>
+
+  <app-edit [book]="bookToEdit" (edition)="editBook($event)"></app-edit>
 </div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Editer un livre</h1>
+  <form>
+    <div class="form-group">
+      <label for="iban">IBAN</label>
+      <input type="text" class="form-control" value="{{book?book.iban:''}}" id="iban" #i>
+      <!--
+        Explication du book?book.iban:''
+        if(book != null){
+          value recevra la valeur iban du book
+        }
+        else{
+          value recevra une chaine vide
+        }
+      -->
+    </div>
+    <div class="form-group">
+      <label for="Titre">Titre</label>
+      <input type="text" class="form-control" value="{{book?book.titre:''}}" id="titre" #t>
+    </div>
+    <div>
+      <input type="button" class="btn btn-primary" value="Editer" (click)="editBook(i.value, t.value)">
+    </div>
+  </form>
+</div>

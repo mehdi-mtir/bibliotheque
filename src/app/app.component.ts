@@ -9,6 +9,8 @@ import { Book } from './models/book';
 export class AppComponent implements OnInit{
   //books = new Array<Book>();
   books : Book[];
+  bookToEdit : Book;
+  indiceBookToEdit : number;
 
   addBook(iban : string, titre : string){
     let book = new Book(iban, titre);
@@ -22,8 +24,24 @@ export class AppComponent implements OnInit{
     }
   }
 
+  showEditBook(indice : number){
+    //passer l'objet à modifier au composant Edit
+    this.bookToEdit = this.books[indice];
+    this.indiceBookToEdit = indice;
+
+  }
+
+  editBook(book : Book){
+    //Récupérer l'objet modifié afin de mettre à jour le tableau books -> le tableau HTML
+    this.books[this.indiceBookToEdit] = book;
+  }
+
   ngOnInit(): void {
     this.books = [];
   }
+
+  /*ngOnChanges(): void{
+
+  }*/
 
 }
