@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Book } from '../models/book';
 
 @Component({
@@ -11,11 +12,12 @@ export class AddComponent implements OnInit {
 
   constructor() { }
 
-  addBook(f : HTMLFormElement){
-    /*let book = new Book(iban, titre, date_publication, prix);
+  addBook(f : NgForm){
+    let book = new Book(f.value.iban, f.value.titre, f.value.date_publication, f.value.prix);
+
     //envoyer le livre créé (book) vers le parent (app.component)
-    this.addEvent.emit(book);*/
-    console.log(f);
+    this.addEvent.emit(book);
+    //console.log(f);
   }
 
   ngOnInit(): void {
