@@ -7,14 +7,15 @@ import { Book } from '../models/book';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  @Input("book") book;
+  //@Input("book") book;
+  @Input() book;
   @Output() edition = new EventEmitter<Book>();
 
   constructor() { }
 
-  editBook(iban : string, titre : string ){
+  editBook(iban : string, titre : string, date_publication : Date, prix : number ){
     //creer un objet Book
-    let bookEdited = new Book(iban, titre);
+    let bookEdited = new Book(iban, titre, date_publication, prix);
     //Envoyer l'objet modifié à la liste pour affichage
     this.edition.emit(bookEdited);
   }

@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
+import { MonnaiePipe } from './pipes/monnaie.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
-    AddComponent
+    AddComponent,
+    MonnaiePipe
   ],
   imports: [
     BrowserModule

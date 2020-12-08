@@ -17,7 +17,15 @@
       <label for="Titre">Titre</label>
       <input type="text" class="form-control" value="{{book?book.titre:''}}" id="titre" #t>
     </div>
+    <div class="form-group">
+      <label for="date_publication">Date de publication</label>
+      <input type="date" class="form-control" value="{{book?book.date_publication:''}}" id="date_publication" #d>
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input type="number" class="form-control" value="{{book?book.prix:''}}" id="prix" #p>
+    </div>
     <div>
-      <input type="button" class="btn btn-primary" value="Editer" (click)="editBook(i.value, t.value)">
+      <input type="button" class="btn btn-primary" value="Editer" (click)="editBook(i.value, t.value, d.value, p.value)">
     </div>
   </form>

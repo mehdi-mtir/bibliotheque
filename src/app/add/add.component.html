@@ -1,5 +1,5 @@
 <h1>Ajouter un livre</h1>
-<form>
+<form (submit)="addBook(f)" #f>
   <div class="form-group">
     <label for="iban">IBAN</label>
     <input type="text" class="form-control" id="iban" #i>
@@ -8,7 +8,15 @@
     <label for="Titre">Titre</label>
     <input type="text" class="form-control" id="titre" #t>
   </div>
+  <div class="form-group">
+    <label for="date_publication">Date de publication</label>
+    <input type="date" class="form-control" id="date_publication" #d>
+  </div>
+  <div class="form-group">
+    <label for="prix">Prix</label>
+    <input type="number" class="form-control" id="prix" #p>
+  </div>
   <div>
-    <input type="button" class="btn btn-primary" value="Ajouter" (click)="addBook(i.value, t.value)">
+    <input type="submit" class="btn btn-primary" value="Ajouter" >
   </div>
 </form>

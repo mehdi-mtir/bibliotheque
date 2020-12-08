@@ -11,10 +11,11 @@ export class AddComponent implements OnInit {
 
   constructor() { }
 
-  addBook(iban : string, titre : string){
-    let book = new Book(iban, titre);
+  addBook(f : HTMLFormElement){
+    /*let book = new Book(iban, titre, date_publication, prix);
     //envoyer le livre créé (book) vers le parent (app.component)
-    this.addEvent.emit(book);
+    this.addEvent.emit(book);*/
+    console.log(f);
   }
 
   ngOnInit(): void {
